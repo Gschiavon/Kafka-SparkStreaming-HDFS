@@ -8,7 +8,7 @@ object Utils extends Serializable {
 
   def parseJSONField(jsonValue: String): List[Any] = {
     if(jsonValue.nonEmpty){
-      val json = JSON.parseFull(jsonValue).get.asInstanceOf[Map[String, String]]
+      val json = JSON.parseFull(jsonValue).get.asInstanceOf[Map[String, Any]]
       val keys = for((key,value) <- json) yield json.get(key).get
       keys.toList
     }
